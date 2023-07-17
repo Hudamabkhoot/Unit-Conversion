@@ -1,43 +1,32 @@
-/*
-1 meter = 3.281 feet
-1 liter = 0.264 gallon
-1 kilogram = 2.204 pound
-*/
 
+const numInput = document.getElementById("num-input")
+const btn = document.getElementById("btn")
 
-let button = document.getElementById("btn")
-
-
-button.addEventListener("click", function(){
-    convertionm()
-    convertionl()
-    convertionk()
-    
+btn.addEventListener("click", function(){
+    length()
+    volume()
+    mass()
 })
 
 
-// feet to meter
-function convertionm() {
-    let input = document.getElementById("inpt").value;
-    let feetmeterResult = document.getElementById("outputMeters")
-    let resultFeet = (input * 3.28).toFixed(3)
-    let resultMeter = (input / 3.28).toFixed(3)
-    feetmeterResult.innerHTML += input + " meters" + " = " + resultFeet + " feet" + " | " + input + " feet" + " = " + resultMeter + " meters"
+function length(){
+    let resultFeet = (numInput.value * 3.28).toFixed(2)
+    let resultMeter = (numInput.value / 3.28).toFixed(2)
+    let lengthValue = document.getElementById("length-value")
+    lengthValue.innerHTML = `${numInput.value} meters = ${resultFeet} feet | ${numInput.value} feet = ${resultMeter} meters`
 }
 
-function convertionl() {
-    let input = document.getElementById("inpt").value;
-    let gallonliterResult = document.getElementById("outputliters")
-    let resultgallon = (input * 0.264).toFixed(3)
-    let resultliter = (input / 3.785).toFixed(3)
-    gallonliterResult.innerHTML += input + " liters" + " = " + resultgallon + " gallons" + " | " + input + " gallons" + " = " + resultliter + " liters"
+
+function volume(){
+    let resultGallon = (numInput.value *0.264).toFixed(2)
+    let resultLiter = (numInput.value / 0.264).toFixed(2)
+    let volumeValue = document.getElementById("volume-value")
+    volumeValue.innerHTML = `${numInput.value} liters = ${resultGallon} gallon | ${numInput.value} gallon = ${resultLiter} liters`
 }
 
-function convertionk() {
-    let input = document.getElementById("inpt").value;
-    let kilogrampoundResult = document.getElementById("outputkilograms")
-    let resultpound = (input * 2.204).toFixed(3)
-    let resultkilograms = (input / 2.204).toFixed(3)
-    kilogrampoundResult.innerHTML += input + " kilograms" + " = " + resultpound + " pound" + " | " + input + " pound" + " = " + resultkilograms + " kilograms"
+function mass(){
+    let resultPound = (numInput.value * 2.204).toFixed(2)
+    let resultKilogram = (numInput.value / 2.204).toFixed(2)
+    let massValue = document.getElementById("mass-value")
+    massValue.innerHTML = `${numInput.value} Kilogram  = ${resultPound} Pound | ${numInput.value} Pound = ${resultKilogram} Kilogram `
 }
-
